@@ -1,9 +1,10 @@
 import { LinkCard } from "@/components/LinkCard";
-
+import { EventCard } from "@/components/EventCard";
 import { ProfileHeader } from "@/components/ProfileHeader";
 
 import profileImage from "@/assets/profile-image.jpg";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
+import calendarIcon from "@/assets/calendar-icon.png";
 
 export default function Index() {
   return (
@@ -32,6 +33,10 @@ export default function Index() {
               title="Join our Whatsapp Group"
               image={whatsappIcon}
               href="https://chat.whatsapp.com/Lecl488Ugo3JC92JQbRpze?mode=gi_t"
+            />
+            <EventCard
+              title="Event and Service Information"
+              image={calendarIcon}
             />
           </div>
         </div>
