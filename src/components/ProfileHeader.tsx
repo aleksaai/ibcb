@@ -33,7 +33,7 @@ export function ProfileHeader({ name, title, description, avatar }: ProfileHeade
         <h1 className="text-xl font-semibold text-black mb-1">
           {name}
         </h1>
-        <p className="text-sm text-gray-600 mb-4">KI-Agenturinhaber</p>
+        <p className="text-sm text-gray-600 mb-4">International Christian Community in Budapest</p>
         
         {/* Social Icons */}
         <div className="flex justify-center gap-4 mb-6">
