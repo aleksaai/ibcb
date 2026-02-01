@@ -2,7 +2,7 @@ import { LinkCard } from "@/components/LinkCard";
 
 import { ProfileHeader } from "@/components/ProfileHeader";
 import { Play } from "lucide-react";
-import profileImage from "@/assets/profile-image.png";
+import profileImage from "@/assets/profile-image.jpg";
 import kiAgenturImage from "@/assets/ki-agentur.png";
 import kiBusinessImage from "@/assets/ki-business.png";
 import herzenssacheImage from "@/assets/herzenssache.png";
