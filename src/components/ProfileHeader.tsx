@@ -30,13 +30,8 @@ export function ProfileHeader({ name, title, description, avatar }: ProfileHeade
 
       {/* Name and handle */}
       <div className="mb-6">
-        <h1 className="text-xl font-semibold text-black mb-1 flex items-center justify-center gap-2">
+        <h1 className="text-xl font-semibold text-black mb-1">
           {name}
-          <img 
-            src="https://i.postimg.cc/Dy4Z1xbM/ki-crew-7.png" 
-            alt="KI Crew Logo" 
-            className="w-5 h-5 rounded-full"
-          />
         </h1>
         <p className="text-sm text-gray-600 mb-4">KI-Agenturinhaber</p>
         
