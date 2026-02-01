@@ -45,6 +45,21 @@ export default function Index() {
             />
           </div>
         </div>
+
+        {/* Video Section */}
+        <div className="mb-6">
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <video 
+              className="w-full" 
+              controls 
+              playsInline
+              preload="metadata"
+            >
+              <source src="/videos/community-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
           
           {/* Footer Text */}
           <div className="mt-8 px-4">
