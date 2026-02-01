@@ -6,6 +6,7 @@ import { ProfileHeader } from "@/components/ProfileHeader";
 import profileImage from "@/assets/profile-image.jpg";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
 import calendarIcon from "@/assets/calendar-icon.png";
+import churchIcon from "@/assets/church-icon.png";
 
 export default function Index() {
   return (
@@ -35,11 +36,11 @@ export default function Index() {
               href="https://chat.whatsapp.com/Lecl488Ugo3JC92JQbRpze?mode=gi_t"
             />
             <ChurchServiceCard
-              title="Church Service Information"
-              image={calendarIcon}
+              title="Visit our Church"
+              image={churchIcon}
             />
             <EventCard
-              title="Event and Service Information"
+              title="Events & Bible Study"
               image={calendarIcon}
             />
           </div>
