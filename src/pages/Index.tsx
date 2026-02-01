@@ -26,7 +26,7 @@ export default function Index() {
       <div className="relative z-10 py-8">
         <div className="max-w-sm mx-auto px-4">
           <ProfileHeader 
-            name="Aleksa Spalevic" 
+            name="IBCB Circle" 
             title="Strategic Business Consulting"
             description="25 | #1 KI-Champ | Budapest"
             avatar={profileImage}
