@@ -1,6 +1,6 @@
 interface ProfileHeaderProps {
   name: string;
-  title: string;
+  title?: string;
   description?: string;
   avatar?: string;
 }

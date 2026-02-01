@@ -1,5 +1,6 @@
 import { LinkCard } from "@/components/LinkCard";
 import { EventCard } from "@/components/EventCard";
+import { ChurchServiceCard } from "@/components/ChurchServiceCard";
 import { ProfileHeader } from "@/components/ProfileHeader";
 
 import profileImage from "@/assets/profile-image.jpg";
@@ -22,7 +23,6 @@ export default function Index() {
         <div className="max-w-sm mx-auto px-4">
           <ProfileHeader 
             name="IBCB Circle" 
-            title="Strategic Business Consulting"
             avatar={profileImage}
           />
         
@@ -34,6 +34,10 @@ export default function Index() {
               image={whatsappIcon}
               href="https://chat.whatsapp.com/Lecl488Ugo3JC92JQbRpze?mode=gi_t"
             />
+            <ChurchServiceCard
+              title="Church Service Information"
+              image={calendarIcon}
+            />
             <EventCard
               title="Event and Service Information"
               image={calendarIcon}
@@ -43,9 +47,8 @@ export default function Index() {
           
           {/* Footer Text */}
           <div className="mt-8 px-4">
-            <p className="text-xs text-gray-800 text-center leading-relaxed">
-              Die DestinyMedia GmbH, Pengoro UG, Voico AI GmbH, MediKI OG & Spalevic Consulting Kft. sind auch Beteiligungen der<br />
-              Spalevic & Partner Holding Kft.
+            <p className="text-xs text-muted-foreground text-center leading-relaxed">
+              We are an international christian community of young adults living in Budapest. We are part of the International Baptist Church of Budapest (IBCB)
             </p>
             
             {/* Legal Links */}
@@ -54,25 +57,25 @@ export default function Index() {
                 href="https://aleksa.ai/agbs" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-800 underline"
+                className="text-muted-foreground hover:text-foreground underline"
               >
                 AGBs
               </a>
-              <span className="text-gray-400">|</span>
+              <span className="text-muted-foreground/50">|</span>
               <a 
                 href="https://aleksa.ai/impressum" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-800 underline"
+                className="text-muted-foreground hover:text-foreground underline"
               >
                 Impressum
               </a>
-              <span className="text-gray-400">|</span>
+              <span className="text-muted-foreground/50">|</span>
               <a 
                 href="https://aleksa.ai/privacy" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-800 underline"
+                className="text-muted-foreground hover:text-foreground underline"
               >
                 Datenschutz
               </a>

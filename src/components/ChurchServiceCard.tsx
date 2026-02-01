@@ -3,25 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown } from "lucide-react";
 
-interface EventCardProps {
+interface ChurchServiceCardProps {
   title: string;
   image: string;
 }
 
-const events = [
-  {
-    name: "Bible Studies",
-    time: "Biweekly",
-    location: "Location varies"
-  },
-  {
-    name: "Monthly Evening Hangout",
-    time: "Every first Friday of the month",
-    location: "Location varies"
-  }
-];
-
-export function EventCard({ title, image }: EventCardProps) {
+export function ChurchServiceCard({ title, image }: ChurchServiceCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -46,15 +33,26 @@ export function EventCard({ title, image }: EventCardProps) {
       </CollapsibleTrigger>
       <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
         <div className="bg-white/80 backdrop-blur-md border border-white/30 border-t-0 rounded-b-lg shadow-lg p-4 space-y-4">
-          {events.map((event, index) => (
-            <div key={index} className="text-left border-b border-border pb-3 last:border-b-0 last:pb-0">
-              <h4 className="font-semibold text-foreground text-sm">{event.name}</h4>
-              <p className="text-muted-foreground text-sm">{event.time}</p>
-              <p className="text-muted-foreground/70 text-xs">{event.location}</p>
-            </div>
-          ))}
+          <div className="text-left">
+            <h4 className="font-semibold text-foreground text-sm">Sundays 10:30am</h4>
+            <p className="text-muted-foreground text-sm">Budapest, Törökvész út 48/54, 1025</p>
+          </div>
+          
+          <div className="w-full h-48 rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2694.5!2d19.0167!3d47.5333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741d94d8a8b2b2b%3A0x0!2zVMO2csO2a3bDqXN6IMO6dCA0OC81NCwgQnVkYXBlc3QsIDEwMjU!5e0!3m2!1sen!2shu!4v1699000000000!5m2!1sen!2shu"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Church Location"
+            />
+          </div>
+          
           <Button 
-            className="w-full mt-4 bg-foreground text-background hover:bg-foreground/90"
+            className="w-full bg-foreground text-background hover:bg-foreground/90"
             onClick={(e) => {
               e.stopPropagation();
               window.open("https://chat.whatsapp.com/Lecl488Ugo3JC92JQbRpze?mode=gi_t", "_blank");
