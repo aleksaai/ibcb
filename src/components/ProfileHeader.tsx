@@ -4,26 +4,21 @@ interface ProfileHeaderProps {
   description?: string;
   avatar?: string;
 }
-
-export function ProfileHeader({ name, title, description, avatar }: ProfileHeaderProps) {
-  return (
-    <div className="text-center mb-8">
+export function ProfileHeader({
+  name,
+  title,
+  description,
+  avatar
+}: ProfileHeaderProps) {
+  return <div className="text-center mb-8">
       {/* Profile Avatar */}
       <div className="mb-4">
         <div className="w-24 h-24 mx-auto mb-4 relative">
-          {avatar ? (
-            <img 
-              src={avatar} 
-              alt={name}
-              className="w-full h-full object-cover rounded-full border-4 border-white/50 shadow-xl backdrop-blur-sm"
-            />
-          ) : (
-            <div className="w-full h-full bg-gray-200 rounded-full border-4 border-white shadow-md flex items-center justify-center">
+          {avatar ? <img src={avatar} alt={name} className="w-full h-full object-cover rounded-full border-4 border-white/50 shadow-xl backdrop-blur-sm" /> : <div className="w-full h-full bg-gray-200 rounded-full border-4 border-white shadow-md flex items-center justify-center">
               <div className="text-xl font-semibold text-gray-600">
                 {name.split(' ').map(n => n[0]).join('')}
               </div>
-            </div>
-          )}
+            </div>}
           {/* Removed online indicator */}
         </div>
       </div>
@@ -36,12 +31,7 @@ export function ProfileHeader({ name, title, description, avatar }: ProfileHeade
         <p className="text-sm text-gray-600 mb-4">International Christian Community in Budapest</p>
         
         
-        {description && (
-          <p className="text-sm text-gray-700 leading-relaxed max-w-xs mx-auto">
-            {description}
-          </p>
-        )}
+        {description}
       </div>
-    </div>
-  );
+    </div>;
 }
