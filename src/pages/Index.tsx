@@ -22,7 +22,6 @@ export default function Index() {
           <ProfileHeader 
             name="IBCB Circle" 
             title="Strategic Business Consulting"
-            description="25 | #1 KI-Champ | Budapest"
             avatar={profileImage}
           />
         
