@@ -1,15 +1,9 @@
 import { LinkCard } from "@/components/LinkCard";
 
 import { ProfileHeader } from "@/components/ProfileHeader";
-import { Play } from "lucide-react";
-import profileImage from "@/assets/profile-image.jpg";
-import kiAgenturImage from "@/assets/ki-agentur.png";
-import kiBusinessImage from "@/assets/ki-business.png";
-import herzenssacheImage from "@/assets/herzenssache.png";
 
-import emailImage from "@/assets/email.png";
-import youtubeThumbnail from "@/assets/youtube-thumbnail.png";
-import secondVideoThumbnail from "@/assets/second-video-thumbnail.png";
+import profileImage from "@/assets/profile-image.jpg";
+import whatsappIcon from "@/assets/whatsapp-icon.png";
 
 export default function Index() {
   return (
@@ -36,71 +30,12 @@ export default function Index() {
         <div className="mb-6">
           <div className="space-y-4">
             <LinkCard
-              title="Meine KI-Agentur"
-              image={kiAgenturImage}
-              href="https://aleksa.ai"
-            />
-            
-            <LinkCard
-              title="Starte dein KI Business"
-              image={kiBusinessImage}
-              href="https://ki-hochschule.de/"
-            />
-            
-            <LinkCard
-              title="Meine Herzenssache"
-              image={herzenssacheImage}
-              href="https://kimakuya.com/"
-            />
-            
-            {/* YouTube Video Thumbnail */}
-            <a 
-              href="https://youtu.be/la-sT8PCR3I?si=BIPSvyUTaj-Xxfvb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full bg-white/80 backdrop-blur-md border border-white/30 rounded-sm shadow-lg overflow-hidden relative group"
-            >
-              <img 
-                src={youtubeThumbnail} 
-                alt="Neuestes YouTube Video" 
-                className="w-full h-auto object-cover"
-              />
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-white rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
-                  <Play className="w-6 h-6 text-black fill-black" />
-                </div>
-              </div>
-            </a>
-            
-            {/* Second Video Thumbnail */}
-            <a 
-              href="https://youtu.be/c6vyT_qmmPw?si=LUds13r_f2gP2ivM"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full bg-white/80 backdrop-blur-md border border-white/30 rounded-sm shadow-lg overflow-hidden relative group"
-            >
-              <img 
-                src={secondVideoThumbnail} 
-                alt="Zweites Video" 
-                className="w-full h-auto object-cover"
-              />
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-white rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
-                  <Play className="w-6 h-6 text-black fill-black" />
-                </div>
-              </div>
-            </a>
-            
-            <LinkCard
-              title="E-Mail"
-              image={emailImage}
-              showCopy={true}
-              copyText="info@aleksa.ai"
+              title="Join our Whatsapp Group"
+              image={whatsappIcon}
+              href="https://chat.whatsapp.com/Lecl488Ugo3JC92JQbRpze?mode=gi_t"
             />
           </div>
-          </div>
+        </div>
           
           {/* Footer Text */}
           <div className="mt-8 px-4">
@@ -139,14 +74,6 @@ export default function Index() {
               </a>
             </div>
 
-            {/* Logo */}
-            <div className="mt-4 flex justify-center">
-              <img 
-                src="https://i.postimg.cc/Dy4Z1xbM/ki-crew-7.png" 
-                alt="KI Crew Logo" 
-                className="h-12 w-auto"
-              />
-            </div>
           </div>
         </div>
       </div>
