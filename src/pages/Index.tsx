@@ -51,35 +51,6 @@ export default function Index() {
               We are an international christian community of young adults living in Budapest. We are part of the International Baptist Church of Budapest (IBCB)
             </p>
             
-            {/* Legal Links */}
-            <div className="mt-4 flex justify-center space-x-4 text-xs">
-              <a 
-                href="https://aleksa.ai/agbs" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground underline"
-              >
-                AGBs
-              </a>
-              <span className="text-muted-foreground/50">|</span>
-              <a 
-                href="https://aleksa.ai/impressum" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground underline"
-              >
-                Impressum
-              </a>
-              <span className="text-muted-foreground/50">|</span>
-              <a 
-                href="https://aleksa.ai/privacy" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground underline"
-              >
-                Datenschutz
-              </a>
-            </div>
 
           </div>
         </div>
