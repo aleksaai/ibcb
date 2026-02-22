@@ -52,7 +52,7 @@ export function ChurchServiceCard({ title, image }: ChurchServiceCardProps) {
           </div>
           
           <Button 
-            className="w-full bg-foreground text-background hover:bg-foreground/90"
+            className="w-full bg-[#3c3c3b] text-white hover:bg-[#3c3c3b]/90"
             onClick={(e) => {
               e.stopPropagation();
               window.open("https://ibcbudapest.org/", "_blank");

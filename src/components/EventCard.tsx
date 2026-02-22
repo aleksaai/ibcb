@@ -81,7 +81,7 @@ export function EventCard({ title, image }: EventCardProps) {
             </div>
           ))}
           <Button 
-            className="w-full mt-4 bg-foreground text-background hover:bg-foreground/90"
+            className="w-full mt-4 bg-[#3c3c3b] text-white hover:bg-[#3c3c3b]/90"
             onClick={(e) => {
               e.stopPropagation();
               window.open("https://chat.whatsapp.com/Lecl488Ugo3JC92JQbRpze?mode=gi_t", "_blank");
