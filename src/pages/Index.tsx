@@ -45,6 +45,13 @@ export default function Index() {
               title="Events & Bible Study"
               image={calendarIcon}
             />
+            <Link
+              to="/gallery"
+              className="flex items-center justify-center gap-4 p-3 w-full bg-white/15 backdrop-blur-xl border border-white/40 rounded-2xl shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:bg-white/25 hover:shadow-[0_8px_32px_rgba(255,255,255,0.25),inset_0_1px_1px_rgba(255,255,255,0.5)] transition-all duration-300"
+            >
+              <img src={galleryIcon} alt="Gallery" className="w-12 h-12 object-contain rounded-sm" />
+              <h3 className="font-semibold text-gray-800 text-lg text-center flex-1">Photo Gallery</h3>
+            </Link>
           </div>
         </div>
 
@@ -61,17 +68,6 @@ export default function Index() {
               Your browser does not support the video tag.
             </video>
           </div>
-        </div>
-
-        {/* Photo Gallery Button */}
-        <div className="mb-6">
-          <Link
-            to="/gallery"
-            className="flex items-center justify-center gap-4 p-3 w-full bg-white/15 backdrop-blur-xl border border-white/40 rounded-2xl shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:bg-white/25 hover:shadow-[0_8px_32px_rgba(255,255,255,0.25),inset_0_1px_1px_rgba(255,255,255,0.5)] transition-all duration-300"
-          >
-            <img src={galleryIcon} alt="Gallery" className="w-12 h-12 object-contain rounded-sm" />
-            <h3 className="font-semibold text-gray-800 text-lg text-center flex-1">Photo Gallery</h3>
-          </Link>
         </div>
           
           {/* Footer Text */}
