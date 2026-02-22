@@ -4,6 +4,7 @@ import { GetInTouchModal } from "./GetInTouchModal";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown } from "lucide-react";
 import mensBreakfastImage from "@/assets/mens-breakfast.png";
+import youngAdultsImage from "@/assets/young-adults.png";
 
 interface ProgramsGroupsCardProps {
   title: string;
@@ -52,7 +53,22 @@ export function ProgramsGroupsCard({ title, image }: ProgramsGroupsCardProps) {
             </CollapsibleTrigger>
             <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
               <div className="p-3 space-y-3">
-                <div>
+                <div className="w-full rounded-lg overflow-hidden">
+                  <img src={youngAdultsImage} alt="Young Adults" className="w-full h-36 object-cover rounded-lg" />
+                </div>
+                <div className="space-y-2">
+                  <div className="text-left">
+                    <h4 className="font-semibold text-foreground text-xs">Bible Studies</h4>
+                    <p className="text-muted-foreground text-xs">Every 2nd Saturday, 15:00–17:00</p>
+                    <p className="text-muted-foreground/70 text-[11px]">Location varies — for more information, get in touch below!</p>
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-foreground text-xs">Monthly Evening Hangout</h4>
+                    <p className="text-muted-foreground text-xs">Every first Friday of the month</p>
+                    <p className="text-muted-foreground/70 text-[11px]">Location varies — for more information, get in touch below!</p>
+                  </div>
+                </div>
+                <div className="border-t border-white/20 pt-2">
                   <h4 className="font-semibold text-foreground text-xs mb-2">Join our Community</h4>
                   <div className="flex gap-2">
                     <Button 
@@ -67,18 +83,6 @@ export function ProgramsGroupsCard({ title, image }: ProgramsGroupsCardProps) {
                     >
                       Instagram
                     </Button>
-                  </div>
-                </div>
-                <div className="border-t border-white/20 pt-2 space-y-2">
-                  <div className="text-left">
-                    <h4 className="font-semibold text-foreground text-xs">Bible Studies</h4>
-                    <p className="text-muted-foreground text-xs">Every 2nd Saturday, 15:00–17:00</p>
-                    <p className="text-muted-foreground/70 text-[11px]">Location varies — for more information, get in touch below!</p>
-                  </div>
-                  <div className="text-left">
-                    <h4 className="font-semibold text-foreground text-xs">Monthly Evening Hangout</h4>
-                    <p className="text-muted-foreground text-xs">Every first Friday of the month</p>
-                    <p className="text-muted-foreground/70 text-[11px]">Location varies — for more information, get in touch below!</p>
                   </div>
                 </div>
               </div>
