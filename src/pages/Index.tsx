@@ -83,7 +83,7 @@ export default function Index() {
                   loop
                   muted
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                 >
                   <source src="/videos/community-video.mp4" type="video/mp4" />
                 </video>

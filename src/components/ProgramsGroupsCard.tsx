@@ -55,7 +55,7 @@ export function ProgramsGroupsCard({ title, image }: ProgramsGroupsCardProps) {
             <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
               <div className="p-3 space-y-3">
                 <div className="w-full rounded-lg overflow-hidden">
-                  <img src={youngAdultsImage} alt="Young Adults" className="w-full h-36 object-cover rounded-lg" />
+                  <img src={youngAdultsImage} alt="Young Adults" className="w-full h-36 object-cover rounded-lg" loading="lazy" decoding="async" />
                 </div>
                 <div className="space-y-2">
                   <div className="text-left">
@@ -101,7 +101,7 @@ export function ProgramsGroupsCard({ title, image }: ProgramsGroupsCardProps) {
             <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
               <div className="p-3 space-y-3">
                 <div className="w-full rounded-lg overflow-hidden">
-                  <img src={mensBreakfastImage} alt="Men's Breakfast" className="w-full h-36 object-cover rounded-lg" />
+                  <img src={mensBreakfastImage} alt="Men's Breakfast" className="w-full h-36 object-cover rounded-lg" loading="lazy" decoding="async" />
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-foreground text-xs">Once monthly at 9:00am</h4>
@@ -158,7 +158,7 @@ export function ProgramsGroupsCard({ title, image }: ProgramsGroupsCardProps) {
             <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
               <div className="p-3 space-y-3">
                 <div className="w-full rounded-lg overflow-hidden">
-                  <img src={businessFellowshipImage} alt="Business Fellowship" className="w-full h-36 object-cover rounded-lg" />
+                  <img src={businessFellowshipImage} alt="Business Fellowship" className="w-full h-36 object-cover rounded-lg" loading="lazy" decoding="async" />
                 </div>
                 <div className="text-left space-y-1">
                   <h4 className="font-semibold text-foreground text-xs">Every other Thursday, 18:30–20:00</h4>

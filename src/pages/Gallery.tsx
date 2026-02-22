@@ -57,6 +57,7 @@ export default function Gallery() {
                 alt={`Community photo ${i + 1}`}
                 className="w-full h-auto object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </button>
           ))}

@@ -23,7 +23,7 @@ export function ChurchServiceCard({ title, image }: ChurchServiceCardProps) {
         >
           <div className="flex items-center justify-center gap-4 p-3 w-full relative">
             <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
-              <img src={churchBuilding} alt={title} className="w-full h-full object-cover" />
+              <img src={churchBuilding} alt={title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
             <h3 className="font-semibold text-gray-800 text-lg text-center flex-1">
               {title}
