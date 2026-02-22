@@ -21,6 +21,11 @@ const photos = [
   "/gallery/photo-15.jpg",
   "/gallery/photo-16.jpg",
   "/gallery/photo-17.jpg",
+  "/gallery/photo-18.jpg",
+  "/gallery/photo-19.jpg",
+  "/gallery/photo-20.jpg",
+  "/gallery/photo-21.jpg",
+  "/gallery/photo-22.jpg",
 ];
 
 export default function Gallery() {
