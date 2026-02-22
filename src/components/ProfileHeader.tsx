@@ -27,11 +27,11 @@ export function ProfileHeader({
 
       {/* Name and handle */}
       <div className="mb-6">
-        <div className="flex items-center justify-center gap-2">
-          <img src={crossIcon} alt="Cross" className="w-6 h-6 object-contain" />
+        <div className="flex items-center justify-center gap-1">
           <h1 className="text-xl font-semibold text-black">
             {name}
           </h1>
+          <img src={crossIcon} alt="Cross" className="w-6 h-6 object-contain" />
         </div>
         <p className="text-sm text-gray-600 mb-4">International Baptist Church of Budapest</p>
         
