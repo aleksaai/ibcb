@@ -1,3 +1,4 @@
+// Church enquiry edge function - sends emails via Resend
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
