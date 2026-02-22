@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 const photos = [
-  "/gallery/photo-2.png",
+  "/gallery/photo-1.jpg",
+  "/gallery/photo-2.jpg",
   "/gallery/photo-3.jpg",
   "/gallery/photo-4.jpg",
   "/gallery/photo-5.jpg",

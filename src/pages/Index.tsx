@@ -67,10 +67,10 @@ export default function Index() {
         <div className="mb-6">
           <Link
             to="/gallery"
-            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-card/80 backdrop-blur-md border border-border shadow-md hover:shadow-lg transition-shadow text-foreground font-medium"
+            className="flex items-center justify-center gap-4 p-3 w-full bg-white/15 backdrop-blur-xl border border-white/40 rounded-2xl shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:bg-white/25 hover:shadow-[0_8px_32px_rgba(255,255,255,0.25),inset_0_1px_1px_rgba(255,255,255,0.5)] transition-all duration-300"
           >
-            <Camera className="w-5 h-5" />
-            Photo Gallery
+            <Camera className="w-12 h-12 text-gray-800" />
+            <h3 className="font-semibold text-gray-800 text-lg text-center flex-1">Photo Gallery</h3>
           </Link>
         </div>
           
