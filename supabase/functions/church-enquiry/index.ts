@@ -1,5 +1,3 @@
-import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -15,7 +13,7 @@ interface EnquiryData {
 
 const HEADER_IMAGE = "https://ibcb.lovable.app/images/church-header.png";
 
-const handler = async (req: Request): Promise<Response> => {
+Deno.serve(async (req: Request): Promise<Response> => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
@@ -33,7 +31,6 @@ const handler = async (req: Request): Promise<Response> => {
     const data: EnquiryData = await req.json();
     console.log("Received enquiry:", JSON.stringify(data));
 
-    // Validate inputs
     if (!data.fullName?.trim() || !data.email?.trim() || data.firstTime === undefined) {
       return new Response(JSON.stringify({ error: "Missing required fields" }), {
         status: 400,
@@ -70,11 +67,10 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     const notificationResult = await notificationRes.json();
-    console.log("Notification email result:", JSON.stringify(notificationResult));
+    console.log("Notification response:", notificationRes.status, JSON.stringify(notificationResult));
 
     if (!notificationRes.ok) {
-      console.error("Failed to send notification:", JSON.stringify(notificationResult));
-      return new Response(JSON.stringify({ error: "Failed to send notification email", details: notificationResult }), {
+      return new Response(JSON.stringify({ error: "Failed to send email", details: notificationResult }), {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       });
@@ -95,24 +91,16 @@ const handler = async (req: Request): Promise<Response> => {
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <img src="${HEADER_IMAGE}" alt="IBCB Community" style="width: 100%; border-radius: 12px; margin-bottom: 24px;" />
             <h2 style="color: #3c3c3b;">Hello ${data.fullName},</h2>
-            <p style="color: #555; line-height: 1.6;">
-              Thank you for reaching out to us! We're so glad you're interested in our community.
-              We've received your message and will get back to you as soon as possible.
-            </p>
-            <p style="color: #555; line-height: 1.6;">
-              We're looking forward to connecting with you!
-            </p>
-            <p style="color: #555; margin-top: 24px;">
-              Warm regards,<br/>
-              <strong>The IBCB Team</strong>
-            </p>
+            <p style="color: #555; line-height: 1.6;">Thank you for reaching out to us! We're so glad you're interested in our community. We've received your message and will get back to you as soon as possible.</p>
+            <p style="color: #555; line-height: 1.6;">We're looking forward to connecting with you!</p>
+            <p style="color: #555; margin-top: 24px;">Warm regards,<br/><strong>The IBCB Team</strong></p>
           </div>
         `,
       }),
     });
 
     const confirmationResult = await confirmationRes.json();
-    console.log("Confirmation email result:", JSON.stringify(confirmationResult));
+    console.log("Confirmation response:", confirmationRes.status, JSON.stringify(confirmationResult));
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
@@ -126,6 +114,4 @@ const handler = async (req: Request): Promise<Response> => {
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
   }
-};
-
-serve(handler);
+});
