@@ -46,6 +46,33 @@ export function EventCard({ title, image }: EventCardProps) {
       </CollapsibleTrigger>
       <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
         <div className="bg-white/15 backdrop-blur-xl border border-white/40 border-t-0 rounded-b-2xl shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_1px_rgba(255,255,255,0.4)] p-4 space-y-4">
+          {/* Social Media & Groups */}
+          <div>
+            <h4 className="font-semibold text-foreground text-sm mb-2">Join our Community</h4>
+            <div className="flex gap-2">
+              <Button 
+                className="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open("https://chat.whatsapp.com/Lecl488Ugo3JC92JQbRpze?mode=gi_t", "_blank");
+                }}
+              >
+                WhatsApp Group
+              </Button>
+              <Button 
+                className="flex-1 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-90 text-white text-xs"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open("https://www.instagram.com/ibcb_circle", "_blank");
+                }}
+              >
+                Instagram
+              </Button>
+            </div>
+          </div>
+          
+          <div className="border-t border-border pt-3" />
+          
           {events.map((event, index) => (
             <div key={index} className="text-left border-b border-border pb-3 last:border-b-0 last:pb-0">
               <h4 className="font-semibold text-foreground text-sm">{event.name}</h4>
