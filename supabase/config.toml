@@ -1,4 +1,7 @@
-project_id = "vmzkuaeikkttcrdtwjpm"
+project_id = "levcfosilqzpswoppvbp"
 
 [functions.church-enquiry]
+verify_jwt = false
+
+[functions.contact-submission]
 verify_jwt = false
