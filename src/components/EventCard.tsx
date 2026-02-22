@@ -11,13 +11,13 @@ interface EventCardProps {
 const events = [
   {
     name: "Bible Studies",
-    time: "Biweekly",
-    location: "Location varies"
+    time: "Every 2nd Saturday, 15:00–17:00",
+    location: "Location varies — for more information, get in touch below!"
   },
   {
     name: "Monthly Evening Hangout",
     time: "Every first Friday of the month",
-    location: "Location varies"
+    location: "Location varies — for more information, get in touch below!"
   }
 ];
 
