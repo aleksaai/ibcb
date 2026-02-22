@@ -12,6 +12,7 @@ import profileImage from "@/assets/profile-image.jpg";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
 import calendarIcon from "@/assets/calendar-icon.png";
 import churchIcon from "@/assets/church-icon.png";
+import breakfastIcon from "@/assets/breakfast-icon.png";
 
 export default function Index() {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -61,7 +62,7 @@ export default function Index() {
             />
             <MensBreakfastCard
               title="Men's Breakfast"
-              image={calendarIcon}
+              image={breakfastIcon}
             />
             <Link
               to="/gallery"
