@@ -59,7 +59,7 @@ export default function Index() {
               image={churchIcon}
             />
             <EventCard
-              title="Events & Bible Study"
+              title="Young Adults (18-30)"
               image={calendarIcon}
             />
             <Link
