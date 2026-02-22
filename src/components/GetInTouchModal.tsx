@@ -62,6 +62,8 @@ export function GetInTouchModal({ open, onOpenChange }: GetInTouchModalProps) {
             src={churchCommunity}
             alt="Our Community"
             className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
           <h2 className="absolute bottom-3 left-4 right-4 text-lg font-bold text-white drop-shadow-lg">

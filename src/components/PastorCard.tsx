@@ -42,7 +42,9 @@ export function PastorCard({ title, image }: PastorCardProps) {
               <img 
                 src={pastorEdPhoto} 
                 alt="Pastor Ed Tarleton" 
-                className="w-full h-full object-cover" 
+                className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="text-left">
