@@ -103,21 +103,23 @@ export default function Index() {
 
       {/* Video Modal */}
       <Dialog open={videoOpen} onOpenChange={(open) => { if (!open) handleCloseVideo(); }}>
-        <DialogContent className="max-w-[95vw] sm:max-w-2xl p-2 bg-background/95 border-none">
-          <video
-            ref={modalVideoRef}
-            className="w-full rounded-lg"
-            controls
-            autoPlay
-            playsInline
-            onLoadedData={(e) => {
-              const video = e.currentTarget;
-              video.currentTime = 0;
-              video.play().catch(() => {});
-            }}
-          >
-            <source src="/videos/community-video.mp4" type="video/mp4" />
-          </video>
+        <DialogContent className="max-w-[92vw] sm:max-w-lg md:max-w-xl p-0 bg-black border-none rounded-2xl overflow-hidden [&>button]:z-20 [&>button]:bg-black/60 [&>button]:rounded-full [&>button]:p-1.5 [&>button]:text-white [&>button]:hover:bg-black/80 [&>button]:top-3 [&>button]:right-3">
+          <div className="relative w-full flex items-center justify-center max-h-[85vh]">
+            <video
+              ref={modalVideoRef}
+              className="w-full max-h-[85vh] object-contain"
+              controls
+              autoPlay
+              playsInline
+              onLoadedData={(e) => {
+                const video = e.currentTarget;
+                video.currentTime = 0;
+                video.play().catch(() => {});
+              }}
+            >
+              <source src="/videos/community-video.mp4" type="video/mp4" />
+            </video>
+          </div>
         </DialogContent>
       </Dialog>
     </div>
