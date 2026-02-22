@@ -3,6 +3,8 @@ import { EventCard } from "@/components/EventCard";
 import { ChurchServiceCard } from "@/components/ChurchServiceCard";
 import { ProfileHeader } from "@/components/ProfileHeader";
 import { Link } from "react-router-dom";
+import { useState, useRef, useCallback } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import galleryIcon from "@/assets/gallery-icon.png";
 
 import profileImage from "@/assets/profile-image.jpg";
@@ -11,6 +13,21 @@ import calendarIcon from "@/assets/calendar-icon.png";
 import churchIcon from "@/assets/church-icon.png";
 
 export default function Index() {
+  const [videoOpen, setVideoOpen] = useState(false);
+  const modalVideoRef = useRef<HTMLVideoElement>(null);
+
+  const handleOpenVideo = useCallback(() => {
+    setVideoOpen(true);
+  }, []);
+
+  const handleCloseVideo = useCallback(() => {
+    setVideoOpen(false);
+    if (modalVideoRef.current) {
+      modalVideoRef.current.pause();
+      modalVideoRef.current.currentTime = 0;
+    }
+  }, []);
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Blurry background */}
@@ -52,21 +69,26 @@ export default function Index() {
               <img src={galleryIcon} alt="Gallery" className="w-12 h-12 object-contain rounded-sm" />
               <h3 className="font-semibold text-gray-800 text-lg text-center flex-1">Photo Gallery</h3>
             </Link>
-          </div>
-        </div>
 
-        {/* Video Section */}
-        <div className="mb-4">
-          <div className="rounded-lg overflow-hidden shadow-lg">
-            <video 
-              className="w-full" 
-              controls 
-              playsInline
-              preload="metadata"
+            {/* Video Button */}
+            <button
+              onClick={handleOpenVideo}
+              className="flex items-center gap-4 p-3 w-full bg-white/15 backdrop-blur-xl border border-white/40 rounded-2xl shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:bg-white/25 hover:shadow-[0_8px_32px_rgba(255,255,255,0.25),inset_0_1px_1px_rgba(255,255,255,0.5)] transition-all duration-300"
             >
-              <source src="/videos/community-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                >
+                  <source src="/videos/community-video.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3 className="font-semibold text-gray-800 text-lg text-center flex-1">Watch our Introduction Video</h3>
+            </button>
           </div>
         </div>
           
@@ -75,11 +97,29 @@ export default function Index() {
             <p className="text-xs text-muted-foreground text-center leading-relaxed">
               We are an international christian community of young adults living in Budapest. We are part of the International Baptist Church of Budapest (IBCB)
             </p>
-            
-
           </div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      <Dialog open={videoOpen} onOpenChange={(open) => { if (!open) handleCloseVideo(); }}>
+        <DialogContent className="max-w-[95vw] sm:max-w-2xl p-2 bg-background/95 border-none">
+          <video
+            ref={modalVideoRef}
+            className="w-full rounded-lg"
+            controls
+            autoPlay
+            playsInline
+            onLoadedData={(e) => {
+              const video = e.currentTarget;
+              video.currentTime = 0;
+              video.play().catch(() => {});
+            }}
+          >
+            <source src="/videos/community-video.mp4" type="video/mp4" />
+          </video>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
