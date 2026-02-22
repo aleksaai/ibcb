@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import churchCommunity from "@/assets/church-community.jpg";
 
 interface GetInTouchModalProps {
@@ -31,13 +30,15 @@ export function GetInTouchModal({ open, onOpenChange }: GetInTouchModalProps) {
 
     setIsSubmitting(true);
     try {
+      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+      const apiKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
       const response = await fetch(
-        `https://vmzkuaeikkttcrdtwjpm.supabase.co/functions/v1/church-enquiry`,
+        `https://${projectId}.supabase.co/functions/v1/church-enquiry`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZtemt1YWVpa2t0dGNyZHR3anBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI0MjAzODYsImV4cCI6MjA2Nzk5NjM4Nn0.X-EgN5neDwZ7sdWHfuolvRx3AgjFhY3nJHRFsd8MSXU",
+            "apikey": apiKey,
           },
           body: JSON.stringify({ fullName, email, message, firstTime }),
         }
