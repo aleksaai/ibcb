@@ -49,11 +49,7 @@ export default function Index() {
         {/* Services Section */}
         <div className="mb-6">
           <div className="space-y-4">
-            <LinkCard
-              title="Join our Whatsapp Group"
-              image={whatsappIcon}
-              href="https://chat.whatsapp.com/Lecl488Ugo3JC92JQbRpze?mode=gi_t"
-            />
+            
             <ChurchServiceCard
               title="Visit our Church"
               image={churchIcon}
