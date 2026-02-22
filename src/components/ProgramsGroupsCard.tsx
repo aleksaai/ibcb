@@ -181,6 +181,10 @@ export function ProgramsGroupsCard({ title, image }: ProgramsGroupsCardProps) {
             </CollapsibleContent>
           </Collapsible>
 
+          <p className="text-muted-foreground text-xs text-center leading-relaxed px-1">
+            👶 We also offer <span className="font-semibold text-foreground">children's programs for kids of all ages</span>, including nursery. For more information, just get in touch!
+          </p>
+
           {/* Shared Get in Touch button */}
           <Button 
             className="w-full bg-[#3c3c3b] text-white hover:bg-[#3c3c3b]/90 rounded-xl"
