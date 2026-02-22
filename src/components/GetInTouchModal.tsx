@@ -31,11 +31,20 @@ export function GetInTouchModal({ open, onOpenChange }: GetInTouchModalProps) {
 
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.functions.invoke("church-enquiry", {
+      const { data, error } = await supabase.functions.invoke("church-enquiry", {
         body: { fullName, email, message, firstTime },
       });
 
+      console.log("Edge function response:", { data, error });
+
       if (error) {
+        console.error("Edge function error:", error);
+        toast({ description: "Something went wrong. Please try again.", variant: "destructive" });
+        return;
+      }
+
+      if (data?.error) {
+        console.error("Edge function returned error:", data.error);
         toast({ description: "Something went wrong. Please try again.", variant: "destructive" });
         return;
       }
