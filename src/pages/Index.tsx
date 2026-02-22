@@ -96,7 +96,7 @@ export default function Index() {
           {/* Footer Text */}
           <div className="mt-8 px-4">
             <p className="text-xs text-muted-foreground text-center leading-relaxed">
-              We are an international christian community of young adults living in Budapest. We are part of the International Baptist Church of Budapest (IBCB)
+              Established in 1991, IBCB serves the English-speaking community in Hungary — welcoming people of many denominations from over 30 nations. A safe haven of Biblical teaching and fellowship.
             </p>
           </div>
         </div>
