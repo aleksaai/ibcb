@@ -45,9 +45,8 @@ export function MensBreakfastCard({ title, image }: MensBreakfastCardProps) {
 
           {/* Event Details */}
           <div className="text-left">
-            <h4 className="font-semibold text-foreground text-sm">Men's Breakfast</h4>
-            <p className="text-muted-foreground text-sm">Where: Lipóti Bakery, Budapest, 13 Frankel Leó út</p>
-            <p className="text-muted-foreground text-sm">When: 14th February 2026, 9:00 am</p>
+            <h4 className="font-semibold text-foreground text-sm">14th February 2026, 9:00 am</h4>
+            <p className="text-muted-foreground text-sm">Lipóti Bakery, Budapest, 13 Frankel Leó út</p>
           </div>
 
           {/* Google Maps */}
