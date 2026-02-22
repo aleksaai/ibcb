@@ -1,5 +1,4 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -22,8 +21,17 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+    const apiKey = Deno.env.get("RESEND_API_KEY");
+    if (!apiKey) {
+      console.error("RESEND_API_KEY is not set");
+      return new Response(JSON.stringify({ error: "Email service not configured" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
     const data: EnquiryData = await req.json();
+    console.log("Received enquiry:", JSON.stringify(data));
 
     // Validate inputs
     if (!data.fullName?.trim() || !data.email?.trim() || data.firstTime === undefined) {
@@ -34,49 +42,77 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     // 1. Send notification to church
-    await resend.emails.send({
-      from: "IBCB <noreply@projekt.aleksa.ai>",
-      to: ["edtarleton2020@gmail.com"],
-      subject: "New Church Enquiry",
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <img src="${HEADER_IMAGE}" alt="IBCB Community" style="width: 100%; border-radius: 12px; margin-bottom: 24px;" />
-          <h2 style="color: #3c3c3b;">Hey, we got a new enquiry for church!</h2>
-          <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
-            <tr><td style="padding: 8px 0; font-weight: bold; color: #3c3c3b;">Name</td><td style="padding: 8px 0;">${data.fullName}</td></tr>
-            <tr><td style="padding: 8px 0; font-weight: bold; color: #3c3c3b;">Email</td><td style="padding: 8px 0;">${data.email}</td></tr>
-            <tr><td style="padding: 8px 0; font-weight: bold; color: #3c3c3b;">First time visitor</td><td style="padding: 8px 0;">${data.firstTime ? "Yes" : "No"}</td></tr>
-            ${data.message ? `<tr><td style="padding: 8px 0; font-weight: bold; color: #3c3c3b; vertical-align: top;">Message</td><td style="padding: 8px 0;">${data.message.replace(/\n/g, "<br>")}</td></tr>` : ""}
-          </table>
-          <hr style="margin-top: 24px; border: none; border-top: 1px solid #eee;" />
-          <p style="color: #999; font-size: 12px;">Submitted at: ${new Date().toLocaleString()}</p>
-        </div>
-      `,
+    const notificationRes = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        from: "IBCB <noreply@projekt.aleksa.ai>",
+        to: ["edtarleton2020@gmail.com"],
+        subject: "New Church Enquiry",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <img src="${HEADER_IMAGE}" alt="IBCB Community" style="width: 100%; border-radius: 12px; margin-bottom: 24px;" />
+            <h2 style="color: #3c3c3b;">Hey, we got a new enquiry for church!</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+              <tr><td style="padding: 8px 0; font-weight: bold; color: #3c3c3b;">Name</td><td style="padding: 8px 0;">${data.fullName}</td></tr>
+              <tr><td style="padding: 8px 0; font-weight: bold; color: #3c3c3b;">Email</td><td style="padding: 8px 0;">${data.email}</td></tr>
+              <tr><td style="padding: 8px 0; font-weight: bold; color: #3c3c3b;">First time visitor</td><td style="padding: 8px 0;">${data.firstTime ? "Yes" : "No"}</td></tr>
+              ${data.message ? `<tr><td style="padding: 8px 0; font-weight: bold; color: #3c3c3b; vertical-align: top;">Message</td><td style="padding: 8px 0;">${data.message.replace(/\n/g, "<br>")}</td></tr>` : ""}
+            </table>
+            <hr style="margin-top: 24px; border: none; border-top: 1px solid #eee;" />
+            <p style="color: #999; font-size: 12px;">Submitted at: ${new Date().toISOString()}</p>
+          </div>
+        `,
+      }),
     });
 
+    const notificationResult = await notificationRes.json();
+    console.log("Notification email result:", JSON.stringify(notificationResult));
+
+    if (!notificationRes.ok) {
+      console.error("Failed to send notification:", JSON.stringify(notificationResult));
+      return new Response(JSON.stringify({ error: "Failed to send notification email", details: notificationResult }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
     // 2. Send confirmation to user
-    await resend.emails.send({
-      from: "IBCB <noreply@projekt.aleksa.ai>",
-      to: [data.email],
-      subject: "Thank you for reaching out!",
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <img src="${HEADER_IMAGE}" alt="IBCB Community" style="width: 100%; border-radius: 12px; margin-bottom: 24px;" />
-          <h2 style="color: #3c3c3b;">Hello ${data.fullName},</h2>
-          <p style="color: #555; line-height: 1.6;">
-            Thank you for reaching out to us! We're so glad you're interested in our community.
-            We've received your message and will get back to you as soon as possible.
-          </p>
-          <p style="color: #555; line-height: 1.6;">
-            We're looking forward to connecting with you!
-          </p>
-          <p style="color: #555; margin-top: 24px;">
-            Warm regards,<br/>
-            <strong>The IBCB Team</strong>
-          </p>
-        </div>
-      `,
+    const confirmationRes = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        from: "IBCB <noreply@projekt.aleksa.ai>",
+        to: [data.email],
+        subject: "Thank you for reaching out!",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <img src="${HEADER_IMAGE}" alt="IBCB Community" style="width: 100%; border-radius: 12px; margin-bottom: 24px;" />
+            <h2 style="color: #3c3c3b;">Hello ${data.fullName},</h2>
+            <p style="color: #555; line-height: 1.6;">
+              Thank you for reaching out to us! We're so glad you're interested in our community.
+              We've received your message and will get back to you as soon as possible.
+            </p>
+            <p style="color: #555; line-height: 1.6;">
+              We're looking forward to connecting with you!
+            </p>
+            <p style="color: #555; margin-top: 24px;">
+              Warm regards,<br/>
+              <strong>The IBCB Team</strong>
+            </p>
+          </div>
+        `,
+      }),
     });
+
+    const confirmationResult = await confirmationRes.json();
+    console.log("Confirmation email result:", JSON.stringify(confirmationResult));
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
