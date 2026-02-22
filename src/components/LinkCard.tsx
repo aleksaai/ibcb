@@ -27,7 +27,7 @@ export function LinkCard({ title, href, image, showCopy, copyText }: LinkCardPro
   const content = (
     <div className="flex items-center justify-center gap-4 p-3 w-full relative">
       <img src={image} alt={title} className="w-12 h-12 object-contain rounded-sm" />
-      <h3 className="font-medium text-black text-base text-center flex-1">
+      <h3 className="font-medium text-gray-700 text-base text-center flex-1 italic" style={{ fontFamily: "'Playfair Display', serif" }}>
         {title}
       </h3>
       {showCopy && (
@@ -46,7 +46,7 @@ export function LinkCard({ title, href, image, showCopy, copyText }: LinkCardPro
       <Button
         variant="ghost"
         asChild
-        className="w-full p-0 h-auto bg-white/80 backdrop-blur-md border border-white/30 rounded-sm shadow-lg"
+        className="w-full p-0 h-auto bg-white/15 backdrop-blur-xl border border-white/40 rounded-2xl shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:bg-white/25 hover:shadow-[0_8px_32px_rgba(255,255,255,0.25),inset_0_1px_1px_rgba(255,255,255,0.5)] transition-all duration-300"
       >
         <a href={href} target="_blank" rel="noopener noreferrer">
           {content}
@@ -58,7 +58,7 @@ export function LinkCard({ title, href, image, showCopy, copyText }: LinkCardPro
   return (
     <Button
       variant="ghost"
-      className="w-full p-0 h-auto bg-white/80 backdrop-blur-md border border-white/30 rounded-sm shadow-lg"
+      className="w-full p-0 h-auto bg-white/15 backdrop-blur-xl border border-white/40 rounded-2xl shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:bg-white/25 hover:shadow-[0_8px_32px_rgba(255,255,255,0.25),inset_0_1px_1px_rgba(255,255,255,0.5)] transition-all duration-300"
     >
       {content}
     </Button>
