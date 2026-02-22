@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown, Mail } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import pastorEdPhoto from "@/assets/pastor-ed.png";
 
 interface PastorCardProps {
@@ -11,6 +12,7 @@ interface PastorCardProps {
 
 export function PastorCard({ title, image }: PastorCardProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { toast } = useToast();
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
@@ -77,9 +79,10 @@ export function PastorCard({ title, image }: PastorCardProps) {
             </Button>
             <Button
               className="flex-1 bg-[#3c3c3b] text-white hover:bg-[#3c3c3b]/90 text-xs h-9 rounded-xl"
-              onClick={(e) => {
+              onClick={async (e) => {
                 e.stopPropagation();
-                window.open("mailto:edtarleton2020@gmail.com", "_blank");
+                await navigator.clipboard.writeText("edtarleton2020@gmail.com");
+                toast({ description: "Email address copied to clipboard!" });
               }}
             >
               <Mail className="w-3.5 h-3.5 mr-1" />
