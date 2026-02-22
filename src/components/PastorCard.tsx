@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown, Mail } from "lucide-react";
+import pastorEdPhoto from "@/assets/pastor-ed.png";
 
 interface PastorCardProps {
   title: string;
@@ -37,7 +38,7 @@ export function PastorCard({ title, image }: PastorCardProps) {
           <div className="flex items-center gap-4">
             <div className="w-20 h-20 rounded-full overflow-hidden border-3 border-white/50 shadow-lg flex-shrink-0">
               <img 
-                src="/lovable-uploads/5e65a7fd-7b8b-4656-89e8-96d4ad0b633a.png" 
+                src={pastorEdPhoto} 
                 alt="Pastor Ed Tarleton" 
                 className="w-full h-full object-cover" 
               />
