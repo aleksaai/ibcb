@@ -23,7 +23,7 @@ export default function Index() {
       <div className="relative z-10 py-8">
         <div className="max-w-sm mx-auto px-4">
           <ProfileHeader 
-            name="IBCB Circle" 
+            name="Welcome to IBCB!" 
             avatar={profileImage}
           />
         
