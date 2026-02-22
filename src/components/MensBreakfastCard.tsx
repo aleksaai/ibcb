@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { GetInTouchModal } from "./GetInTouchModal";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown } from "lucide-react";
 import mensBreakfastImage from "@/assets/mens-breakfast.png";
@@ -11,7 +12,7 @@ interface MensBreakfastCardProps {
 
 export function MensBreakfastCard({ title, image }: MensBreakfastCardProps) {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [contactOpen, setContactOpen] = useState(false);
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
       <CollapsibleTrigger asChild>
@@ -68,11 +69,12 @@ export function MensBreakfastCard({ title, image }: MensBreakfastCardProps) {
             className="w-full bg-[#3c3c3b] text-white hover:bg-[#3c3c3b]/90"
             onClick={(e) => {
               e.stopPropagation();
-              window.open("https://chat.whatsapp.com/Lecl488Ugo3JC92JQbRpze?mode=gi_t", "_blank");
+              setContactOpen(true);
             }}
           >
             Get in touch
           </Button>
+          <GetInTouchModal open={contactOpen} onOpenChange={setContactOpen} />
       </CollapsibleContent>
     </Collapsible>
   );
