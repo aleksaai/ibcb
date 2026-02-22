@@ -1,5 +1,6 @@
 import { LinkCard } from "@/components/LinkCard";
 import { EventCard } from "@/components/EventCard";
+import { MensBreakfastCard } from "@/components/MensBreakfastCard";
 import { ChurchServiceCard } from "@/components/ChurchServiceCard";
 import { ProfileHeader } from "@/components/ProfileHeader";
 import { Link } from "react-router-dom";
@@ -11,6 +12,7 @@ import profileImage from "@/assets/profile-image.jpg";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
 import calendarIcon from "@/assets/calendar-icon.png";
 import churchIcon from "@/assets/church-icon.png";
+import crossIcon from "@/assets/cross-icon.png";
 
 export default function Index() {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -57,6 +59,10 @@ export default function Index() {
             <EventCard
               title="Young Adults (18-30)"
               image={calendarIcon}
+            />
+            <MensBreakfastCard
+              title="Men's Breakfast"
+              image={crossIcon}
             />
             <Link
               to="/gallery"
