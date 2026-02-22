@@ -60,6 +60,10 @@ export function ChurchServiceCard({ title, image }: ChurchServiceCardProps) {
           >
             Visit our Website
           </Button>
+
+          <p className="text-muted-foreground text-xs text-center leading-relaxed pt-1">
+            🙏 At the end of each service, you're welcome to speak with members of our prayer team who would love to pray with you — whatever is on your heart.
+          </p>
         </div>
       </CollapsibleContent>
     </Collapsible>
