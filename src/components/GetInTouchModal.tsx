@@ -31,21 +31,24 @@ export function GetInTouchModal({ open, onOpenChange }: GetInTouchModalProps) {
 
     setIsSubmitting(true);
     try {
-      const { data, error } = await supabase.functions.invoke("church-enquiry", {
-        body: { fullName, email, message, firstTime },
-      });
+      const response = await fetch(
+        `https://vmzkuaeikkttcrdtwjpm.supabase.co/functions/v1/church-enquiry`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZtemt1YWVpa2t0dGNyZHR3anBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI0MjAzODYsImV4cCI6MjA2Nzk5NjM4Nn0.X-EgN5neDwZ7sdWHfuolvRx3AgjFhY3nJHRFsd8MSXU",
+          },
+          body: JSON.stringify({ fullName, email, message, firstTime }),
+        }
+      );
 
-      console.log("Edge function response:", { data, error });
+      const data = await response.json();
+      console.log("Response status:", response.status, "Data:", data);
 
-      if (error) {
-        console.error("Edge function error:", error);
-        toast({ description: "Something went wrong. Please try again.", variant: "destructive" });
-        return;
-      }
-
-      if (data?.error) {
-        console.error("Edge function returned error:", data.error);
-        toast({ description: "Something went wrong. Please try again.", variant: "destructive" });
+      if (!response.ok || data?.error) {
+        console.error("Function error:", data);
+        toast({ description: `Error: ${data?.error || response.statusText}`, variant: "destructive" });
         return;
       }
 
