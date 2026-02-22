@@ -1,6 +1,7 @@
 import { LinkCard } from "@/components/LinkCard";
 import { EventCard } from "@/components/EventCard";
 import { MensBreakfastCard } from "@/components/MensBreakfastCard";
+import { WomensBreakfastCard } from "@/components/WomensBreakfastCard";
 import { ChurchServiceCard } from "@/components/ChurchServiceCard";
 import { ProfileHeader } from "@/components/ProfileHeader";
 import { Link } from "react-router-dom";
@@ -62,6 +63,10 @@ export default function Index() {
             />
             <MensBreakfastCard
               title="Men's Breakfast"
+              image={breakfastIcon}
+            />
+            <WomensBreakfastCard
+              title="Women's Breakfast"
               image={breakfastIcon}
             />
             <Link
