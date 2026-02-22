@@ -77,7 +77,7 @@ export function GetInTouchModal({ open, onOpenChange }: GetInTouchModalProps) {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="Your name"
-                className="bg-white/20 border-white/30 backdrop-blur-sm focus:bg-white/30 focus:border-white/50 h-9 text-sm rounded-xl placeholder:text-white/40"
+                className="bg-white/20 border-white/30 backdrop-blur-sm focus:bg-white/30 focus:border-white/50 focus:ring-0 focus:outline-none focus-visible:ring-0 h-9 text-sm rounded-xl placeholder:text-white/40"
                 required
               />
             </div>
@@ -88,7 +88,7 @@ export function GetInTouchModal({ open, onOpenChange }: GetInTouchModalProps) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="bg-white/20 border-white/30 backdrop-blur-sm focus:bg-white/30 focus:border-white/50 h-9 text-sm rounded-xl placeholder:text-white/40"
+                className="bg-white/20 border-white/30 backdrop-blur-sm focus:bg-white/30 focus:border-white/50 focus:ring-0 focus:outline-none focus-visible:ring-0 h-9 text-sm rounded-xl placeholder:text-white/40"
                 required
               />
             </div>
@@ -101,7 +101,7 @@ export function GetInTouchModal({ open, onOpenChange }: GetInTouchModalProps) {
               onChange={(e) => setMessage(e.target.value)}
               placeholder="How can we help?"
               rows={2}
-              className="bg-white/20 border-white/30 backdrop-blur-sm focus:bg-white/30 focus:border-white/50 resize-none text-sm rounded-xl placeholder:text-white/40"
+              className="bg-white/20 border-white/30 backdrop-blur-sm focus:bg-white/30 focus:border-white/50 focus:ring-0 focus:outline-none focus-visible:ring-0 resize-none text-sm rounded-xl placeholder:text-white/40"
             />
           </div>
 
