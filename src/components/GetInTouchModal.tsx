@@ -55,7 +55,7 @@ export function GetInTouchModal({ open, onOpenChange }: GetInTouchModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[92vw] sm:max-w-[400px] p-0 bg-white/10 backdrop-blur-2xl border border-white/30 shadow-2xl rounded-2xl overflow-hidden [&>button]:z-20 [&>button]:bg-black/40 [&>button]:rounded-full [&>button]:text-white [&>button]:hover:bg-black/60 [&>button]:top-2 [&>button]:right-2">
+      <DialogContent className="max-w-[92vw] sm:max-w-[400px] max-h-[90vh] overflow-y-auto p-0 bg-white/10 backdrop-blur-2xl border border-white/30 shadow-2xl rounded-2xl overflow-hidden [&>button]:z-20 [&>button]:bg-black/40 [&>button]:rounded-full [&>button]:text-white [&>button]:hover:bg-black/60 [&>button]:top-2 [&>button]:right-2">
         {/* Header Image */}
         <div className="w-full h-36 sm:h-44 overflow-hidden relative">
           <img
