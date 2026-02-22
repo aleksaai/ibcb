@@ -28,7 +28,7 @@ export function ProfileHeader({
         <h1 className="text-xl font-semibold text-black mb-1">
           {name}
         </h1>
-        <p className="text-sm text-gray-600 mb-4">International Christian Community in Budapest</p>
+        <p className="text-sm text-gray-600 mb-4">International Baptist Church of Budapest</p>
         
         
         {description}
