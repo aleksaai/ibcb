@@ -5,6 +5,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { ChevronDown } from "lucide-react";
 import mensBreakfastImage from "@/assets/mens-breakfast.png";
 import youngAdultsImage from "@/assets/young-adults.png";
+import businessFellowshipImage from "@/assets/business-fellowship.png";
 
 interface ProgramsGroupsCardProps {
   title: string;
@@ -141,6 +142,40 @@ export function ProgramsGroupsCard({ title, image }: ProgramsGroupsCardProps) {
                     width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade" title="KMK Building Location"
                   />
+                </div>
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+
+          {/* Business Fellowship Sub-section */}
+          <Collapsible open={activeSection === "business-fellowship"} onOpenChange={() => toggleSection("business-fellowship")}>
+            <CollapsibleTrigger asChild>
+              <button className="w-full flex items-center justify-between p-3 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-200">
+                <span className="font-semibold text-foreground text-sm">Business Fellowship</span>
+                <ChevronDown className={`w-4 h-4 text-foreground transition-transform duration-300 ${activeSection === "business-fellowship" ? 'rotate-180' : ''}`} />
+              </button>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+              <div className="p-3 space-y-3">
+                <div className="w-full rounded-lg overflow-hidden">
+                  <img src={businessFellowshipImage} alt="Business Fellowship" className="w-full h-36 object-cover rounded-lg" />
+                </div>
+                <div className="text-left space-y-1">
+                  <h4 className="font-semibold text-foreground text-xs">Every other Thursday, 18:30–20:00</h4>
+                  <p className="text-muted-foreground text-xs">Online via Zoom</p>
+                </div>
+                <p className="text-muted-foreground text-xs leading-relaxed">
+                  A space for spiritual growth in the marketplace. Join us for expert speakers, great discussions, elevator pitch practice, and a toolbox for launching your venture — all centered around recognizing the face of God in the workplace. No preparation needed — just bring your vision, your business idea, and an open mind.
+                </p>
+                <div className="bg-white/10 rounded-xl p-3 text-left">
+                  <p className="text-foreground text-xs font-semibold">📬 Contact Person</p>
+                  <p className="text-foreground text-sm font-medium mt-1">Randal Stone</p>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); window.open("mailto:r.stone33@gmail.com", "_blank"); }}
+                    className="text-muted-foreground text-xs underline hover:text-foreground transition-colors mt-0.5"
+                  >
+                    r.stone33@gmail.com
+                  </button>
                 </div>
               </div>
             </CollapsibleContent>
