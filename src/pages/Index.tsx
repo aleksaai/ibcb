@@ -3,6 +3,7 @@ import { EventCard } from "@/components/EventCard";
 import { MensBreakfastCard } from "@/components/MensBreakfastCard";
 import { WomensBreakfastCard } from "@/components/WomensBreakfastCard";
 import { ChurchServiceCard } from "@/components/ChurchServiceCard";
+import { PastorCard } from "@/components/PastorCard";
 import { ProfileHeader } from "@/components/ProfileHeader";
 import { Link } from "react-router-dom";
 import { useState, useRef, useCallback } from "react";
@@ -55,6 +56,10 @@ export default function Index() {
             
             <ChurchServiceCard
               title="Visit our Church"
+              image={churchIcon}
+            />
+            <PastorCard
+              title="Meet our Pastor"
               image={churchIcon}
             />
             <EventCard
