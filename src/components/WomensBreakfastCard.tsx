@@ -37,7 +37,7 @@ export function WomensBreakfastCard({ title, image }: WomensBreakfastCardProps) 
         <div className="bg-white/15 backdrop-blur-xl border border-white/40 border-t-0 rounded-b-2xl shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_1px_rgba(255,255,255,0.4)] p-4 space-y-4">
           {/* Event Details */}
           <div className="text-left space-y-2">
-            <h4 className="font-semibold text-foreground text-sm">Every month on Saturday at 9:30am</h4>
+            <h4 className="font-semibold text-foreground text-sm">Once monthly at 9:30am</h4>
             <p className="text-muted-foreground text-sm">KMK Building (Montázs Art Café)</p>
             <p className="text-muted-foreground text-sm">Budapest, Etele út 55, 1119</p>
           </div>
