@@ -1,7 +1,5 @@
 import { LinkCard } from "@/components/LinkCard";
-import { EventCard } from "@/components/EventCard";
-import { MensBreakfastCard } from "@/components/MensBreakfastCard";
-import { WomensBreakfastCard } from "@/components/WomensBreakfastCard";
+import { ProgramsGroupsCard } from "@/components/ProgramsGroupsCard";
 import { ChurchServiceCard } from "@/components/ChurchServiceCard";
 import { PastorCard } from "@/components/PastorCard";
 import { ProfileHeader } from "@/components/ProfileHeader";
@@ -14,7 +12,6 @@ import profileImage from "@/assets/profile-image.jpg";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
 import calendarIcon from "@/assets/calendar-icon.png";
 import churchIcon from "@/assets/church-icon.png";
-import breakfastIcon from "@/assets/breakfast-icon.png";
 
 export default function Index() {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -62,17 +59,9 @@ export default function Index() {
               title="Meet our Pastor"
               image={churchIcon}
             />
-            <EventCard
-              title="Young Adults (18-30)"
+            <ProgramsGroupsCard
+              title="Programs & Groups"
               image={calendarIcon}
-            />
-            <MensBreakfastCard
-              title="Men's Breakfast"
-              image={breakfastIcon}
-            />
-            <WomensBreakfastCard
-              title="Women's Breakfast"
-              image={breakfastIcon}
             />
             <Link
               to="/gallery"
