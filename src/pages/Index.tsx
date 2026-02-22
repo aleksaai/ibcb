@@ -3,7 +3,7 @@ import { EventCard } from "@/components/EventCard";
 import { ChurchServiceCard } from "@/components/ChurchServiceCard";
 import { ProfileHeader } from "@/components/ProfileHeader";
 import { Link } from "react-router-dom";
-import { Camera } from "lucide-react";
+import galleryIcon from "@/assets/gallery-icon.png";
 
 import profileImage from "@/assets/profile-image.jpg";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
@@ -69,7 +69,7 @@ export default function Index() {
             to="/gallery"
             className="flex items-center justify-center gap-4 p-3 w-full bg-white/15 backdrop-blur-xl border border-white/40 rounded-2xl shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:bg-white/25 hover:shadow-[0_8px_32px_rgba(255,255,255,0.25),inset_0_1px_1px_rgba(255,255,255,0.5)] transition-all duration-300"
           >
-            <Camera className="w-12 h-12 text-gray-800" />
+            <img src={galleryIcon} alt="Gallery" className="w-12 h-12 object-contain rounded-sm" />
             <h3 className="font-semibold text-gray-800 text-lg text-center flex-1">Photo Gallery</h3>
           </Link>
         </div>
