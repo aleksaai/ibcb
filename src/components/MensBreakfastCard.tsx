@@ -45,7 +45,7 @@ export function MensBreakfastCard({ title, image }: MensBreakfastCardProps) {
 
           {/* Event Details */}
           <div className="text-left">
-            <h4 className="font-semibold text-foreground text-sm">14th February 2026, 9:00 am</h4>
+            <h4 className="font-semibold text-foreground text-sm">Once monthly at 9:00am</h4>
             <p className="text-muted-foreground text-sm">Lipóti Bakery, Budapest, 13 Frankel Leó út</p>
           </div>
 
@@ -62,7 +62,17 @@ export function MensBreakfastCard({ title, image }: MensBreakfastCardProps) {
               title="Lipóti Bakery Location"
             />
           </div>
-        </div>
+          </div>
+
+          <Button 
+            className="w-full bg-foreground text-background hover:bg-foreground/90"
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open("https://chat.whatsapp.com/Lecl488Ugo3JC92JQbRpze?mode=gi_t", "_blank");
+            }}
+          >
+            Get in touch
+          </Button>
       </CollapsibleContent>
     </Collapsible>
   );
