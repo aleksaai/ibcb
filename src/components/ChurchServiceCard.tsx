@@ -55,10 +55,10 @@ export function ChurchServiceCard({ title, image }: ChurchServiceCardProps) {
             className="w-full bg-foreground text-background hover:bg-foreground/90"
             onClick={(e) => {
               e.stopPropagation();
-              window.open("https://chat.whatsapp.com/Lecl488Ugo3JC92JQbRpze?mode=gi_t", "_blank");
+              window.open("https://ibcbudapest.org/", "_blank");
             }}
           >
-            Get in touch
+            Visit our Website
           </Button>
         </div>
       </CollapsibleContent>
