@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown } from "lucide-react";
+import churchBuilding from "@/assets/church-building.jpg";
 
 interface ChurchServiceCardProps {
   title: string;
@@ -21,7 +22,9 @@ export function ChurchServiceCard({ title, image }: ChurchServiceCardProps) {
           }`}
         >
           <div className="flex items-center justify-center gap-4 p-3 w-full relative">
-            <img src={image} alt={title} className="w-12 h-12 object-contain rounded-sm" />
+            <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+              <img src={churchBuilding} alt={title} className="w-full h-full object-cover" />
+            </div>
             <h3 className="font-semibold text-gray-800 text-lg text-center flex-1">
               {title}
             </h3>
