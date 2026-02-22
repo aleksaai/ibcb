@@ -2,6 +2,8 @@ import { LinkCard } from "@/components/LinkCard";
 import { EventCard } from "@/components/EventCard";
 import { ChurchServiceCard } from "@/components/ChurchServiceCard";
 import { ProfileHeader } from "@/components/ProfileHeader";
+import { Link } from "react-router-dom";
+import { Camera } from "lucide-react";
 
 import profileImage from "@/assets/profile-image.jpg";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
@@ -47,7 +49,7 @@ export default function Index() {
         </div>
 
         {/* Video Section */}
-        <div className="mb-6">
+        <div className="mb-4">
           <div className="rounded-lg overflow-hidden shadow-lg">
             <video 
               className="w-full" 
@@ -59,6 +61,17 @@ export default function Index() {
               Your browser does not support the video tag.
             </video>
           </div>
+        </div>
+
+        {/* Photo Gallery Button */}
+        <div className="mb-6">
+          <Link
+            to="/gallery"
+            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-card/80 backdrop-blur-md border border-border shadow-md hover:shadow-lg transition-shadow text-foreground font-medium"
+          >
+            <Camera className="w-5 h-5" />
+            Photo Gallery
+          </Link>
         </div>
           
           {/* Footer Text */}
