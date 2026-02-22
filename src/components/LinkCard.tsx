@@ -27,7 +27,7 @@ export function LinkCard({ title, href, image, showCopy, copyText }: LinkCardPro
   const content = (
     <div className="flex items-center justify-center gap-4 p-3 w-full relative">
       <img src={image} alt={title} className="w-12 h-12 object-contain rounded-sm" />
-      <h3 className="font-medium text-gray-700 text-base text-center flex-1 italic" style={{ fontFamily: "'Playfair Display', serif" }}>
+      <h3 className="font-semibold text-gray-800 text-lg text-center flex-1">
         {title}
       </h3>
       {showCopy && (
