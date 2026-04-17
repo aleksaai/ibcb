@@ -1,7 +1,10 @@
-project_id = "levcfosilqzpswoppvbp"
+project_id = "znltfcxpngtztiwbcamm"
 
-[functions.church-enquiry]
+[functions.ibcb-enquiry]
 verify_jwt = false
 
-[functions.contact-submission]
+[functions.ibcb-contact-submission]
+verify_jwt = false
+
+[functions.ibcb-consent-submission]
 verify_jwt = false
