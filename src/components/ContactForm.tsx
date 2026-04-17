@@ -40,7 +40,7 @@ export function ContactForm({ title, image }: ContactFormProps) {
     setIsSubmitting(true);
     
     try {
-      const { error } = await supabase.functions.invoke('contact-submission', {
+      const { error } = await supabase.functions.invoke('ibcb-contact-submission', {
         body: data
       });
 

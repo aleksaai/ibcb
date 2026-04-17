@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import churchCommunity from "@/assets/church-community.jpg";
 
 interface GetInTouchModalProps {
@@ -30,26 +31,16 @@ export function GetInTouchModal({ open, onOpenChange }: GetInTouchModalProps) {
 
     setIsSubmitting(true);
     try {
-      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
-      const apiKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-      const response = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/church-enquiry`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "apikey": apiKey,
-          },
-          body: JSON.stringify({ fullName, email, message, firstTime }),
-        }
-      );
+      const { data, error } = await supabase.functions.invoke("ibcb-enquiry", {
+        body: { fullName, email, message, firstTime },
+      });
 
-      const data = await response.json();
-      console.log("Response status:", response.status, "Data:", data);
-
-      if (!response.ok || data?.error) {
-        console.error("Function error:", data);
-        toast({ description: `Error: ${data?.error || response.statusText}`, variant: "destructive" });
+      if (error || data?.error) {
+        console.error("Function error:", error || data);
+        toast({
+          description: `Error: ${data?.error || error?.message || "Unknown"}`,
+          variant: "destructive",
+        });
         return;
       }
 
@@ -59,7 +50,8 @@ export function GetInTouchModal({ open, onOpenChange }: GetInTouchModalProps) {
       setMessage("");
       setFirstTime(null);
       onOpenChange(false);
-    } catch {
+    } catch (err) {
+      console.error("Submit failed:", err);
       toast({ description: "Something went wrong. Please try again.", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
